@@ -2,6 +2,7 @@ import { GlobalStyle } from "./utiles/globalStyles";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy } from "react";
 
+const MyCompLayout = lazy(() => import("./components/Layout/Layout"));
 const MyCompHome = lazy(() => import("./pages/HomePage/HomePage"));
 const MyCompLogin = lazy(() => import("./pages/LoginPage/LoginPage"));
 const MyCompFavorites = lazy(() =>
@@ -15,10 +16,12 @@ function App() {
       future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
     >
       <Routes>
-        <Route path="/" element={<MyCompHome />} />
-        <Route path="/login" element={<MyCompLogin />} />
-        <Route path="/favorites" element={<MyCompFavorites />} />
-        <Route path="*" element={<MyCompNotFound />} />
+        <Route path="/" element={<MyCompLayout />}>
+          <Route index element={<MyCompHome />} />
+          <Route path="login" element={<MyCompLogin />} />
+          <Route path="favorites" element={<MyCompFavorites />} />
+          <Route path="*" element={<MyCompNotFound />} />
+        </Route>
       </Routes>
       <GlobalStyle />
     </BrowserRouter>
