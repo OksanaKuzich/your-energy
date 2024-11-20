@@ -1,42 +1,54 @@
 import { Link } from "react-router-dom";
-import { messengers } from "./data";
+import { messengers, navItems } from "./data";
+import Menu from "../../images/menu.svg";
+import Logo from "../../images/logo.png";
 import { Container } from "../Container/Container.styled";
-import { HeaderSection, HeaderWrapper, NavList } from "./Header.style";
-
-const logo = require("../../images/logo.png");
+import {
+  HeaderSection,
+  HeaderWrapper,
+  NavList,
+  LinkNav,
+  MessengersList,
+  MessengerItem,
+  MobMenuBtn,
+} from "./Header.style";
 
 export const Header = () => {
+  const initialPath = window.location.pathname;
+  console.log(initialPath);
+
   return (
     <HeaderSection>
       <Container>
         <HeaderWrapper>
           <Link to="/">
-            <img src={logo} alt="Your energy logo" />
+            <img src={Logo} alt="Your energy logo" />
           </Link>
           <nav>
             <NavList>
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/login">Log in</Link>
-              </li>
-              <li>
-                <Link to="/favorites">Favorites</Link>
-              </li>
+              {navItems.map(({ href, text }) => (
+                <li key={href}>
+                  <LinkNav to={href} key={href}>
+                    {text}
+                  </LinkNav>
+                </li>
+              ))}
             </NavList>
           </nav>
-          <ul>
+          <MessengersList>
             {messengers.map(({ name, icon, href }) => {
               return (
-                <li key={name}>
+                <MessengerItem key={name}>
                   <a href={href} target="_blank" rel="noreferrer">
                     <img src={icon} alt={name} />
                   </a>
-                </li>
+                </MessengerItem>
               );
             })}
-          </ul>
+          </MessengersList>
+          <MobMenuBtn>
+            <img src={Menu} alt="Mobile menu icon" />
+          </MobMenuBtn>
         </HeaderWrapper>
       </Container>
     </HeaderSection>

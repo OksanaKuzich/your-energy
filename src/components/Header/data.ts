@@ -2,6 +2,12 @@ import facebook from "../../images/facebook.svg";
 import instagram from "../../images/instagram.svg";
 import youtube from "../../images/youtube.svg";
 
+export const navItems = [
+  { href: "/", text: "Home" },
+  { href: "/login", text: "Log in" },
+  { href: "/favorites", text: "Favorites" },
+];
+
 export const messengers = [
   {
     name: "Facebook",
