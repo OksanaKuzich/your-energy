@@ -14,9 +14,6 @@ import {
 } from "./Header.style";
 
 export const Header = () => {
-  const initialPath = window.location.pathname;
-  console.log(initialPath);
-
   return (
     <HeaderSection>
       <Container>
