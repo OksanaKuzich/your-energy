@@ -1,7 +1,15 @@
 import Sun from "../../images/sun.svg";
 import HeroXl from "../../images/hero.png";
 import HeroSm from "../../images/hero-sm.png";
-import { HeroWrapper, TagList, TagItem, TagSection } from "./Hero.style";
+import {
+  HeroWrapper,
+  TitleWrapper,
+  Icon,
+  HeroTitle,
+  TagList,
+  TagItem,
+  TagSection,
+} from "./Hero.style";
 
 export const Hero = () => {
   const data = ["Sport", "Healthy", "Workout", "Diet"];
@@ -9,16 +17,17 @@ export const Hero = () => {
   return (
     <>
       <HeroWrapper>
-        <>
-          <h1>
-            <img src={Sun} alt="Logo icon" />
-            Get Body in shape, Stay healthy
-          </h1>
+        <TitleWrapper>
+          <Icon src={Sun} alt="Logo icon" />
+          <HeroTitle>
+            Get <i>Body</i> in <br />
+            shape, Stay healthy
+          </HeroTitle>
           <p>
             Transform your physique and embrace a healthier lifestyle with our
             comprehensive fitness and nutrition support.
           </p>
-        </>
+        </TitleWrapper>
         <TagSection>
           <img src={HeroSm} alt="Logo icon" width="168px" height="100px" />
           <TagList>
